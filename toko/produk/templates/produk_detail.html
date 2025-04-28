@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Produk</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .info {
+      margin-top: 20px;
+    }
+    .info p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    .back {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Detail Produk</h1>
+  <div class="info">
+    <p><strong>ID Produk:</strong> {{ produk.id }}</p>
+    <p><strong>Nama Produk:</strong> {{ produk.name }}</p>
+    <p><strong>Harga:</strong> Rp{{ produk.price }}</p>
+    <p><strong>Deskripsi:</strong> {{ produk.description }}</p>
+    <p><strong>Stok Tersedia:</strong> {{ produk.stock }}</p>
+  </div>
+ 
+
+  <div class="back">
+    <a href="/produk/">← Kembali ke Daftar Produk</a>
+  </div>
+</div>
+
+</body>
+</html>

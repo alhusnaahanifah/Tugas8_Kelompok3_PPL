@@ -1,17 +1,75 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
   <title>Daftar Produk</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+    .price {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #28a745;
+    }
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Produk di Toko Kami</h1>
 
-  <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-  </ul>
+<h1>Produk Elektronik Kami</h1>
 
-  <h2><a href="{% url 'kontak' %}">Hubungi Kami</a></h2>
+<div class="grid">
+  {% for produk in products %}
+  <div class="card">
+    <a href="/produk/{{ produk.id }}/">{{ produk.name }}</a>
+    <div class="price">Rp{{ produk.price | stringformat:"d" }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="back">
+  <a href="/">← Kembali ke Beranda</a>
+</div>
+
 </body>
 </html>
